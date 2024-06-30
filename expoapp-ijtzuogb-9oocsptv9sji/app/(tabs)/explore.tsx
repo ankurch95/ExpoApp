@@ -3,12 +3,12 @@ import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
 export default function TabTwoScreen() {
   return (
     <SafeAreaView>
-    <View style={styles.titleContainer}>
-    <Text>
-     Explore
-    </Text>
-    </View>
-   </SafeAreaView>
+      <View style={styles.titleContainer}>
+        <Text>
+          Explore
+        </Text>
+      </View>
+    </SafeAreaView>
   );
 }
 

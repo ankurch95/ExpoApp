@@ -1,16 +1,18 @@
-import { Image, StyleSheet,Text, SafeAreaView, View } from 'react-native';
+import { Link } from 'expo-router';
+import { Image, StyleSheet, Text, SafeAreaView, View } from 'react-native';
 
 
 export default function HomeScreen() {
   return (
-   <SafeAreaView>
-    <View style={styles.titleContainer}>
-    <Text>
-     Home
-    </Text>
-    </View>
-   </SafeAreaView>
-    
+    <SafeAreaView>
+      <View style={styles.titleContainer}>
+        <Text>
+          Home
+        </Text>
+        <Link href="/explore">Explore</Link>
+      </View>
+    </SafeAreaView>
+
   );
 }
 
