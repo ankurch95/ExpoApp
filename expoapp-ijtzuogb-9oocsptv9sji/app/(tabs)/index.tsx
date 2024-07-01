@@ -9,7 +9,7 @@ export default function HomeScreen() {
         <Text>
           Home
         </Text>
-        <Link href="/explore">Explore</Link>
+        
       </View>
     </SafeAreaView>
 
