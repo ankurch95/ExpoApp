@@ -1,56 +1,7 @@
-// import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-// import { useFonts } from 'expo-font';
-// import { Stack } from 'expo-router';
-// import * as SplashScreen from 'expo-splash-screen';
-// import { useEffect, useState } from 'react';
-// import 'react-native-reanimated';
-
-// import { useColorScheme } from '@/hooks/useColorScheme';
-
-// // Prevent the splash screen from auto-hiding before asset loading is complete.
-// SplashScreen.preventAutoHideAsync();
-
-// export default function RootLayout() {
-//   const colorScheme = useColorScheme();
-//   const [isLoggedIn,setIsLoggedIn] = useState(false);
-//   const [loaded] = useFonts({
-//     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-//   });
-
-//   useEffect(() => {
-//     if (loaded) {
-//       setIsLoggedIn(true)
-//       SplashScreen.hideAsync();
-//     }
-//   }, [loaded]);
-
-//   if (!loaded) {
-//     return null;
-//   }
-
-//   return (
-//     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-//       {
-//         isLoggedIn ?
-//           <Stack screenOptions={{ headerShown: false }}>
-//             <Stack.Screen name="(auth)" />
-//             <Stack.Screen name="+not-found" />
-//           </Stack>
-//           :
-//           <Stack screenOptions={{ headerShown: false }}>
-//             <Stack.Screen name="(auth)" />
-//           </Stack>
-//       }
-//     </ThemeProvider>
-//   );
-// }
-
-
 import { Slot } from 'expo-router';
 import { SessionProvider } from '../hooks/ctx';
 
 export default function Root() {
-  // Set up the auth context and render our layout inside of it.
   return (
     <SessionProvider>
       <Slot />

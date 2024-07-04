@@ -1,36 +1,24 @@
-import { Link } from 'expo-router';
-import { Image, StyleSheet, Text, SafeAreaView, View } from 'react-native';
-
+import { Text, View ,StyleSheet} from 'react-native';
+import { useSession } from '../../hooks/ctx';
+import { useEffect } from 'react';
 
 export default function HomeScreen() {
+  const { signOut,session } = useSession();
+  useEffect(() => {
+    console.log(session);
+  }, [session]);
   return (
-    <SafeAreaView>
-      <View style={styles.titleContainer}>
-        <Text>
-          Home
-        </Text>
-        
-      </View>
-    </SafeAreaView>
-
+    <View style={style.container}>
+      <Text>Logged is as: {session}</Text>
+      <Text onPress={() => {signOut()}}>Sign Out</Text>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})

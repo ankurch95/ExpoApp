@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { Text, View, StyleSheet, TextInput, SafeAreaView, Button, Pressable } from 'react-native';
 import { useSession } from '../hooks/ctx';
 import { useState } from 'react';
@@ -30,6 +30,8 @@ export default function SignIn() {
           onPress={() => { signIn(email), router.replace('/') }}>
           <Text style={{ color: 'white' }}>Sign In</Text>
         </Pressable>
+
+        <Text style={{ marginTop: 20 }}>Don't have an account? <Link href="/sign-up" style={{ color: 'purple' }}>Sign Up</Link></Text>
       </View>
     </SafeAreaView>
   );
