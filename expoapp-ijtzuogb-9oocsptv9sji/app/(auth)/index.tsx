@@ -1,18 +1,24 @@
-import { Text, View } from 'react-native';
-
+import { Text, View ,StyleSheet} from 'react-native';
 import { useSession } from '../../hooks/ctx';
+import { useEffect } from 'react';
 
 export default function Index() {
-  const { signOut } = useSession();
+  const { signOut,session } = useSession();
+  useEffect(() => {
+    console.log(session);
+  }, [session]);
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text
-        onPress={() => {
-          // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.
-          signOut();
-        }}>
-        Sign Out
-      </Text>
+    <View style={style.container}>
+      <Text>Logged is as: {session}</Text>
+      <Text onPress={() => {signOut()}}>Sign Out</Text>
     </View>
   );
 }
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})

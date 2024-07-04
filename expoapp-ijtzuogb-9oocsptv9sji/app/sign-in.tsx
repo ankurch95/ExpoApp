@@ -1,21 +1,60 @@
 import { router } from 'expo-router';
-import { Text, View } from 'react-native';
-
+import { Text, View, StyleSheet, TextInput, SafeAreaView, Button, Pressable } from 'react-native';
 import { useSession } from '../hooks/ctx';
+import { useState } from 'react';
 
 export default function SignIn() {
   const { signIn } = useSession();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text
-        onPress={() => {
-          signIn();
-          // Navigate after signing in. You may want to tweak this to ensure sign-in is
-          // successful before navigating.
-          router.replace('/');
-        }}>
-        Sign In
-      </Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={style.container}>
+
+        <TextInput
+          value={email}
+          placeholder='Enter Email'
+          onChangeText={(text: string) => setEmail(text)}
+          style={style.textInputStyle} />
+
+        <TextInput
+          value={password}
+          placeholder='Enter Password'
+          onChangeText={(text: string) => setPassword(text)}
+          style={style.textInputStyle} />
+
+        <Pressable
+          style={style.button}
+          onPress={() => { signIn(email), router.replace('/') }}>
+          <Text style={{ color: 'white' }}>Sign In</Text>
+        </Pressable>
+      </View>
+    </SafeAreaView>
   );
 }
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 200,
+    alignItems: 'center'
+  },
+  textInputStyle: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    width: '90%',
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    marginTop: 20
+  },
+  button: {
+    backgroundColor: 'black',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 5,
+    marginTop: 20
+  }
+});
