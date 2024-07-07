@@ -29,7 +29,6 @@ export default function SignUp() {
                 <TextInput
                     value={password}
                     placeholder='Enter Password'
-                    secureTextEntry
                     onChangeText={(text: string) => setPassword(text)}
                     style={style.textInputStyle} />
 
