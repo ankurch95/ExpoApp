@@ -25,6 +25,7 @@ export default function HomeScreen() {
               ],
             });
             console.log(credential);
+            
           } catch (e) {
             if (e.code === 'ERR_REQUEST_CANCELED') {
              console.log('user cancel the sign in');
