@@ -27,7 +27,7 @@ export default function SignIn() {
 
         <Pressable
           style={style.button}
-          onPress={() => { signIn(email), router.replace('/') }}>
+          onPress={() => { signIn(email), router.replace('/(tabs)') }}>
           <Text style={{ color: 'white' }}>Sign In</Text>
         </Pressable>
 
